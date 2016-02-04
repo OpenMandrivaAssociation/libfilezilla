@@ -1,0 +1,113 @@
+%define major		0
+%define libname		%mklibname filezilla %{major}
+%define develname	%mklibname filezilla -d
+
+Name:		libfilezilla
+Version:	0.3.1
+Release:	%mkrel 1
+Summary:	Small and modern C++ library
+License:	GPLv2+
+Group:		System/Libraries
+URL:		https://lib.filezilla-project.org/
+Source0:	http://sourceforge.net/projects/filezilla/files/%{name}/%{version}/%{name}-%{version}.tar.bz2
+
+BuildRequires:	doxygen
+BuildRequires:	graphviz
+
+# needed for testsuite
+BuildRequires:	locales-en
+BuildRequires:	pkgconfig(cppunit)
+
+%description
+libfilezilla is a free, open source C++ library, offering some basic
+functionality to build high-performing, platform-independent programs.
+Some of the highlights include:
+
+* A typesafe, multi-threaded event system that's very simple to use yet
+  extremely efficient.
+* Timers for periodic events.
+* A datetime class that not only tracks timestamp but also their accuracy,
+  which simplifies dealing with timestamps originating from different sources.
+* Simple process handling for spawning child processes with redirected I/O.
+
+#------------------------------------------------
+
+%package -n	%{libname}
+Summary:	Small and modern C++ library
+Group:		System/Libraries
+
+%description -n	%{libname}
+libfilezilla is a free, open source C++ library, offering some basic
+functionality to build high-performing, platform-independent programs.
+Some of the highlights include:
+
+* A typesafe, multi-threaded event system that's very simple to use yet
+  extremely efficient.
+* Timers for periodic events.
+* A datetime class that not only tracks timestamp but also their accuracy,
+  which simplifies dealing with timestamps originating from different sources.
+* Simple process handling for spawning child processes with redirected I/O.
+
+#------------------------------------------------
+
+%package -n	%{develname}
+Summary:	Development package for %{name}
+Group:		Development/C++
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+
+%description -n	%{develname}
+Header files for development with %{name}.
+
+#------------------------------------------------
+%prep
+%setup -q
+
+%build
+%configure2_5x \
+		--disable-static
+%make
+
+pushd doc
+make html
+popd
+
+%install
+%make_install
+
+# we don't want these
+find %{buildroot} -name '*.la' -delete
+
+%check
+LC_ALL=en_US.UTF-8 \
+make check
+
+%files -n %{libname}
+%doc AUTHORS ChangeLog NEWS README
+%{_libdir}/%{name}.so.%{major}{,.*}
+
+%files -n %{develname}
+%doc AUTHORS ChangeLog NEWS README
+%doc doc/doxygen-doc/*
+%{_includedir}/%{name}/
+%{_libdir}/%{name}.so
+%{_libdir}/pkgconfig/%{name}.pc
+
+
+%changelog
+* Sun Jan 31 2016 daviddavid <daviddavid> 0.3.1-1.mga6
++ Revision: 929299
+- new version: 0.3.1
+- new upstream snapshot: 0.3.0_rev7291
+- enable testsuite
+- remove merged upstream patch
+
+* Sat Jan 30 2016 daviddavid <daviddavid> 0.3.0-2.mga6
++ Revision: 929212
+- add patch0 to fix linking issue:
+  * https://trac.filezilla-project.org/ticket/10734#ticket
+
+* Sat Jan 30 2016 daviddavid <daviddavid> 0.3.0-1.mga6
++ Revision: 929202
+- initial package libfilezilla
+
