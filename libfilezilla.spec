@@ -4,7 +4,7 @@
 
 Name:		libfilezilla
 Version:	0.3.1
-Release:	%mkrel 1
+Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
@@ -64,8 +64,7 @@ Header files for development with %{name}.
 %setup -q
 
 %build
-%configure2_5x \
-		--disable-static
+%configure
 %make
 
 pushd doc
@@ -92,22 +91,4 @@ make check
 %{_includedir}/%{name}/
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-
-
-%changelog
-* Sun Jan 31 2016 daviddavid <daviddavid> 0.3.1-1.mga6
-+ Revision: 929299
-- new version: 0.3.1
-- new upstream snapshot: 0.3.0_rev7291
-- enable testsuite
-- remove merged upstream patch
-
-* Sat Jan 30 2016 daviddavid <daviddavid> 0.3.0-2.mga6
-+ Revision: 929212
-- add patch0 to fix linking issue:
-  * https://trac.filezilla-project.org/ticket/10734#ticket
-
-* Sat Jan 30 2016 daviddavid <daviddavid> 0.3.0-1.mga6
-+ Revision: 929202
-- initial package libfilezilla
 
