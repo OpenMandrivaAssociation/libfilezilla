@@ -83,7 +83,7 @@ make check
 
 %files -n %{libname}
 %doc AUTHORS ChangeLog NEWS README
-%{_libdir}/%{name}.so.%{major}{,.*}
+%{_libdir}/%{name}.so.%{major}*
 
 %files -n %{develname}
 %doc AUTHORS ChangeLog NEWS README
