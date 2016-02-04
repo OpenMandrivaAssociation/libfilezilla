@@ -64,6 +64,11 @@ Header files for development with %{name}.
 %setup -q
 
 %build
+%ifarch %ix86
+export CC=gcc
+export CXX=g++
+%endif
+
 %configure
 %make
 
