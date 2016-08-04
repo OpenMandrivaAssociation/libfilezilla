@@ -3,13 +3,13 @@
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.4.0.1
+Version:	0.6.1
 Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
 URL:		https://lib.filezilla-project.org/
-Source0:	http://sourceforge.net/projects/filezilla/files/%{name}/%{version}/%{name}-%{version}.tar.bz2
+Source0:	http://download.filezilla-project.org/libfilezilla/%{name}-%{version}.tar.bz2
 
 BuildRequires:	doxygen
 BuildRequires:	graphviz
