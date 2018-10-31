@@ -4,7 +4,7 @@
 
 Name:		libfilezilla
 Version:	0.13.2
-Release:	1
+Release:	2
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
