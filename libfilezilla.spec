@@ -3,8 +3,8 @@
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.13.2
-Release:	2
+Version:	0.15.1
+Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
@@ -13,6 +13,8 @@ Source0:	http://download.filezilla-project.org/libfilezilla/%{name}-%{version}.t
 
 BuildRequires:	doxygen
 BuildRequires:	graphviz
+BuildRequires:  pkgconfig(nettle)
+BuildRequires:  gmp-devel
 
 # needed for testsuite
 BuildRequires:	locales-en
@@ -70,7 +72,7 @@ export CXX=g++
 %endif
 
 %configure
-%make
+%make_build
 
 pushd doc
 make html
