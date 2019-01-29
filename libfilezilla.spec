@@ -14,6 +14,7 @@ Source0:	http://download.filezilla-project.org/libfilezilla/%{name}-%{version}.t
 BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:  pkgconfig(nettle)
+BuildRequires:  gmp-devel
 
 # needed for testsuite
 BuildRequires:	locales-en
