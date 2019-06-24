@@ -71,7 +71,7 @@ export CC=gcc
 export CXX=g++
 %endif
 
-%configure
+%configure -std=c++17
 %make_build
 
 pushd doc
