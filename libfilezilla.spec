@@ -1,3 +1,6 @@
+# libfilezilla need now c++17, so force clang to use it
+%global optflags %{optflags} -std=c++17
+
 %define major		0
 %define libname		%mklibname filezilla %{major}
 %define develname	%mklibname filezilla -d
@@ -71,7 +74,7 @@ export CC=gcc
 export CXX=g++
 %endif
 
-%configure -std=c++17
+%configure
 %make_build
 
 pushd doc
