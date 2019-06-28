@@ -1,4 +1,6 @@
-# libfilezilla need now c++17, so force clang to use it
+# FIXME
+# libfilezilla need now c++17, so force clang to use it but for some reason this workaround wont work...
+# so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
 %define major		0
@@ -70,10 +72,12 @@ Header files for development with %{name}.
 %setup -q
 
 %build
-%ifarch %ix86
+#i686 build fail on clang
+#ifarch %ix86
+# force all archs to GCC due to issue with forcing clang to c++17, plsease retest in future version! (angry)
 export CC=gcc
 export CXX=g++
-%endif
+#endif
 
 %configure
 %make_build
@@ -95,6 +99,7 @@ make check
 %files -n %{libname}
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/%{name}.so.%{major}*
+%{_datadir}/locale/*
 
 %files -n %{develname}
 %doc AUTHORS ChangeLog NEWS README
