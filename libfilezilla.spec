@@ -1,5 +1,5 @@
 # libfilezilla need now c++17, so force clang to use it
-%global optflags %{optflags} -std=gnu++17
+#global optflags %{optflags} -std=gnu++17
 
 %define major		0
 %define libname		%mklibname filezilla %{major}
@@ -18,6 +18,7 @@ BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:  pkgconfig(nettle)
 BuildRequires:  gmp-devel
+BuildRequires:  pkgconfig(gnutls)
 
 # needed for testsuite
 BuildRequires:	locales-en
