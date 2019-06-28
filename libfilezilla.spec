@@ -1,9 +1,14 @@
+# FIXME
+# libfilezilla need now c++17, so force clang to use it but for some reason this workaround wont work...
+# so disable it for now, until we find a better solution
+#global optflags %{optflags} -std=gnu++17
+
 %define major		0
 %define libname		%mklibname filezilla %{major}
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.15.1
+Version:	0.17.1
 Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
@@ -15,6 +20,7 @@ BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:  pkgconfig(nettle)
 BuildRequires:  gmp-devel
+BuildRequires:  pkgconfig(gnutls)
 
 # needed for testsuite
 BuildRequires:	locales-en
@@ -66,10 +72,12 @@ Header files for development with %{name}.
 %setup -q
 
 %build
-%ifarch %ix86
+#i686 build fail on clang
+#ifarch %ix86
+# force all archs to GCC due to issue with forcing clang to c++17, plsease retest in future version! (angry)
 export CC=gcc
 export CXX=g++
-%endif
+#endif
 
 %configure
 %make_build
@@ -91,6 +99,7 @@ make check
 %files -n %{libname}
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/%{name}.so.%{major}*
+%{_datadir}/locale/*
 
 %files -n %{develname}
 %doc AUTHORS ChangeLog NEWS README
