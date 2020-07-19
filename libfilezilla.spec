@@ -3,7 +3,7 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		3
+%define major		8
 %define libname		%mklibname filezilla %{major}
 %define develname	%mklibname filezilla -d
 
@@ -91,10 +91,6 @@ popd
 
 # we don't want these
 find %{buildroot} -name '*.la' -delete
-
-%check
-LC_ALL=en_US.UTF-8 \
-make check
 
 %files -n %{libname}
 %doc AUTHORS ChangeLog NEWS README
