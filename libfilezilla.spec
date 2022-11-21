@@ -3,12 +3,12 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		23
+%define major		32
 %define libname		%mklibname filezilla %{major}
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.35.0
+Version:	0.39.2
 Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
@@ -43,6 +43,7 @@ Some of the highlights include:
 %package -n	%{libname}
 Summary:	Small and modern C++ library
 Group:		System/Libraries
+Obsoletes: %{libname} < %{EVRD}
 
 %description -n	%{libname}
 libfilezilla is a free, open source C++ library, offering some basic
