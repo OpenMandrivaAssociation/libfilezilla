@@ -3,18 +3,18 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		35
-%define libname		%mklibname filezilla %{major}
+%define major		41
+%define libname		%mklibname filezilla
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.41.1
-Release:	2
+Version:	0.45.0
+Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
 URL:		https://lib.filezilla-project.org/
-Source0:	http://download.filezilla-project.org/libfilezilla/%{name}-%{version}.tar.bz2
+Source0:	http://download.filezilla-project.org/libfilezilla/%{name}-%{version}.tar.xz
 
 BuildRequires:	doxygen
 BuildRequires:	graphviz
@@ -44,6 +44,7 @@ Some of the highlights include:
 Summary:	Small and modern C++ library
 Group:		System/Libraries
 Obsoletes: %{libname} < %{EVRD}
+Obsoletes: %{libname}35
 
 %description -n	%{libname}
 libfilezilla is a free, open source C++ library, offering some basic
