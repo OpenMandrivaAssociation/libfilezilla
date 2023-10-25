@@ -16,6 +16,7 @@ Group:		System/Libraries
 URL:		https://lib.filezilla-project.org/
 Source0:	http://download.filezilla-project.org/libfilezilla/%{name}-%{version}.tar.xz
 
+BuildRequires:  make
 BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:  pkgconfig(nettle)
@@ -44,6 +45,7 @@ Some of the highlights include:
 Summary:	Small and modern C++ library
 Group:		System/Libraries
 Obsoletes: %{libname} < %{EVRD}
+Obsoletes: %{libname}32
 Obsoletes: %{libname}35
 
 %description -n	%{libname}
@@ -74,12 +76,6 @@ Header files for development with %{name}.
 %setup -q
 
 %build
-#i686 build fail on clang
-#ifarch %ix86
-# force all archs to GCC due to issue with forcing clang to c++17, plsease retest in future version! (angry)
-#export CC=gcc
-#export CXX=g++
-#endif
 
 %configure
 %make_build
