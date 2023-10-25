@@ -8,8 +8,8 @@
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.41.1
-Release:	2
+Version:	0.45.0
+Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
