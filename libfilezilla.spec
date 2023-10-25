@@ -3,8 +3,8 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		35
-%define libname		%mklibname filezilla %{major}
+%define major		41
+%define libname		%mklibname filezilla
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
@@ -44,6 +44,7 @@ Some of the highlights include:
 Summary:	Small and modern C++ library
 Group:		System/Libraries
 Obsoletes: %{libname} < %{EVRD}
+Obsoletes: %{libname}35
 
 %description -n	%{libname}
 libfilezilla is a free, open source C++ library, offering some basic
