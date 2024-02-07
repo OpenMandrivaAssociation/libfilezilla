@@ -18,6 +18,7 @@ Source0:	https://download.filezilla-project.org/libfilezilla/%{name}-%{version}.
 
 BuildRequires:  make
 BuildRequires:	doxygen
+BuildRequires:  gettext
 BuildRequires:	graphviz
 BuildRequires:  pkgconfig(nettle)
 BuildRequires:  gmp-devel
