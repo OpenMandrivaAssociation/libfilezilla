@@ -3,7 +3,7 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		43
+%define major		45
 %define libname		%mklibname filezilla
 %define develname	%mklibname filezilla -d
 
