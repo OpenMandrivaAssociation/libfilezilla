@@ -3,7 +3,7 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		46
+%define major		48
 %define libname		%mklibname filezilla
 %define develname	%mklibname filezilla -d
 
@@ -74,7 +74,7 @@ Header files for development with %{name}.
 
 #------------------------------------------------
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 
@@ -102,4 +102,3 @@ find %{buildroot} -name '*.la' -delete
 %{_includedir}/%{name}/
 %{_libdir}/%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-
