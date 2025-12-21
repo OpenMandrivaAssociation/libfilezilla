@@ -16,6 +16,10 @@ Group:		System/Libraries
 URL:		https://lib.filezilla-project.org/
 Source0:	https://download.filezilla-project.org/libfilezilla/%{name}-%{version}.tar.xz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:  make
 BuildRequires:	doxygen
 BuildRequires:  gettext
