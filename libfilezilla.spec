@@ -27,6 +27,7 @@ BuildRequires:	graphviz
 BuildRequires:  pkgconfig(nettle)
 BuildRequires:  gmp-devel
 BuildRequires:  pkgconfig(gnutls)
+BuildRequires:  fzssh-devel
 
 # needed for testsuite
 BuildRequires:	locales-en
