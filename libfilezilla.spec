@@ -3,13 +3,13 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		58
+%define major		59
 %define libname		%mklibname filezilla
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.56.1
-Release:	2
+Version:	0.57.0
+Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
 Group:		System/Libraries
@@ -81,7 +81,7 @@ Header files for development with %{name}.
 %autosetup -p1
 
 %build
-
+#FIXME try meson after 0.57.0
 %configure
 %make_build
 
