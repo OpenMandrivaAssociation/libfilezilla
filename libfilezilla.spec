@@ -3,12 +3,12 @@
 # so disable it for now, until we find a better solution
 #global optflags %{optflags} -std=gnu++17
 
-%define major		59
+%define major		61
 %define libname		%mklibname filezilla
 %define develname	%mklibname filezilla -d
 
 Name:		libfilezilla
-Version:	0.57.0
+Version:	0.59.0
 Release:	1
 Summary:	Small and modern C++ library
 License:	GPLv2+
